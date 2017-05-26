@@ -10,7 +10,7 @@ easy_admin:
     entities:
         Purchase:
             class: AppBundle\Entity\Purchase
-            controller: AppBundle\Controller\Admin\PurchaseController
+            controller: AppBundle\Controller\PurchaseController
             disabled_actions: ['delete']
             list:
                 actions: [ { name: 'show', icon: 'shopping-basket' } ]

@@ -6,7 +6,6 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Class Category.
  *
- * @author MacFJA
  *
  * @ORM\Table(name="category")
  * @ORM\Entity

@@ -2,12 +2,10 @@
 
 namespace AppBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
-use AppBundle\Model\Shipment;
+use AppBundle\Entity\Shipment;
 use Doctrine\ORM\Mapping as ORM;
 /**
  * Class Purchase.
- *
- * @author MacFJA
  *
  * @ORM\Table(name="purchase")
  * @ORM\Entity
