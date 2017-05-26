@@ -1,0 +1,233 @@
+/*Header*/
+/*Top nav left*/
+.top-nav {
+;
+    color: #333;
+    line-height: 40px;
+    border-bottom: 1px solid #01b1d7;
+}
+
+/*Top left Menu*/
+.top-left {
+    float: left;
+}
+
+.top-left ul >li {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.top-left a {
+    font-size: 16px;
+    color: #333;
+}
+
+.top-left a:hover {
+    color: #01b1d7;
+}
+
+/*Top Right Menu*/
+.top-right {
+    float: right;
+}
+
+.top-right p:before {
+    content: "\f126";
+    font-family: 'FontAwesome';
+    font-size: 16px;
+    color: #01b1d7;
+    margin-right: 10px;
+}
+
+.top-right p {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.top-right p > span {
+    margin-left: 5px;
+    font-style: italic;
+    font-weight: 400;
+}
+
+
+/*Nagivation*/
+#main-nav {
+    padding: 15px 0;
+}
+
+/*Affix*/
+#main-nav.affix {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(255,255,255,0.9);
+    color: #fff;
+    z-index:10;
+    -moz-box-shadow: 0 1px 2px #ebebeb;
+    -webkit-box-shadow: 0 1px 2px #ebebeb;
+    box-shadow: 0 5px 5px rgba(0,0,0,.15);
+    transition: all 0.3s;
+}
+
+.navbar {
+    margin:0;
+}
+
+#main-nav .navbar-header a {
+    background-color: #01b1d7;
+    color: #fff;
+}
+/*Toggle Menu*/
+#main-nav .navbar-toggle {
+    background-color: #01b1d7;
+}
+
+#main-nav .navbar-toggle span {
+    background-color: #fff;
+}
+
+/*Main Menu*/
+#main-nav .navbar-right {
+    margin-top: 10px;
+}
+#main-nav .navbar-right li > a {
+    font-family: 'Raleway', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 30px;
+    color: #555;
+    padding-top: 0;
+    padding-bottom: 0;
+    text-transform: uppercase;
+}
+
+#main-nav .navbar-right li > a:focus {
+    color: #01b1d7;
+    background: none;
+    outline: none;
+}
+
+#main-nav .navbar-nav>li>a:hover,
+#main-nav .navbar-nav>li.active>a {
+    color: #01b1d7;
+    background: none;
+}
+
+/*Search Form*/
+.search-form {
+    padding: 10px;
+    position: absolute;
+    bottom: -76px;
+    right: 15px;
+    z-index: 3;
+    background: #fff;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .5s linear;
+    -moz-box-shadow: 0 1px 2px #ebebeb;
+    -webkit-box-shadow: 0 1px 2px #ebebeb;
+    box-shadow: 0 1px 2px #ebebeb;
+}
+
+.search-form.visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+.search-form input {
+    height: 40px;
+    width: 275px;
+    border-color: #e8e8e8;
+}
+
+
+/*Footer*/
+#footer {
+    margin-top: 100px;
+    background-color: #181818;
+    padding: 50px 0;
+}
+
+#footer .footer-heading {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    padding: 0 20px;
+    color: #fff;
+}
+
+#footer .footer-heading h3 {
+    font-size: 20px;
+    text-transform: capitalize;
+}
+
+#footer .footer-heading span {
+    border-bottom: 2px solid #01b1d7;
+    padding-bottom: 8px;
+}
+
+#footer .footer-heading p {
+    font-family: 'Open Sans', sans-serif;
+    word-spacing: 3px;
+    font-weight: 300;
+    margin-top: 40px;
+    color: #7e7e7e;
+}
+
+#footer .footer-heading ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-top: 30px;
+}
+
+#footer .footer-heading li {
+    border-bottom: 1px solid #8b8b8b;
+    padding: 10px 0;
+}
+
+#footer .footer-heading ul > li > a:before {
+    content: "\f10c";
+    font-family: 'FontAwesome';
+    padding-right: 10px;
+}
+
+#footer .footer-heading ul > li > a {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    color: #7e7e7e;
+}
+
+#footer .footer-heading ul > li > a:hover {
+    color: #01b1d7;
+}
+
+#footer .insta img {
+    float: left;
+    width: 100px;
+    height: 100px;
+}
+
+.credits a {
+    color: #fff;
+}
+
+/*Bottom Footer*/
+#bottom-footer {
+    background-color: #282828;
+    padding: 20px 0;
+    color: #8e8e8e;
+}
+
+#bottom-footer .footer-right ul > li > a {
+    color: #8e8e8e;
+}
+
+#bottom-footer .footer-right ul > li > a:hover {
+    color: #01b1d7;
+}
+

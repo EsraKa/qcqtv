@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- bootstrap cdn -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+              integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+              crossorigin="anonymous">
+
+        <script
+                src="https://code.jquery.com/jquery-3.2.1.min.js"
+                integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+                crossorigin="anonymous"></script>
+
+    </head>
+    <body>
+
+
+    <header id="home">
+
+        <section class="top-nav hidden-xs">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="top-left">
+
+                            <ul>
+                                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                                    <li>
+                                        {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
+                                        <a href="{{ path('fos_user_security_logout') }}">
+                                            {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                                        </a>
+                                    </li>
+                                {% else %}
+                                    <li>
+                                        <a href="{{ path('fos_user_security_login') }}"> <span class="fa fa-user"> </span> {{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                                    </li>
+                                    <li>
+                                        <a href="/register"><span class="fa fa-lock"> </span>
+                                            Créer un Compte</a>
+                                    </li>
+
+                                {% endif %}
+
+                            </ul>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="top-right">
+                            <p>Version<span>BETA</span></p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!--main-nav-->
+
+        <div id="main-nav">
+
+            <nav class="navbar">
+                <div class="container">
+
+                    <div class="navbar-header">
+                        <a href="{{ path('homepage') }}" class="navbar-brand">Qu'est ce que tu veux</a>
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#ftheme">
+                            <span class="sr-only">Toggle</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+
+                    <div class="navbar-collapse collapse" id="ftheme">
+
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="{{ path('homepage') }}">Accueil</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    {% for category in categories %}
+                                        <li><a href="#">{{ category.name }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </li>
+                            <li><a href="/annonce">déposer une annonce</a></li>
+                            <li><a href="{{ path('transport') }}">contation transport</a></li>
+                            <li><a href="{{ path('contact') }}">contact</a></li>
+                            <li class="hidden-sm hidden-xs">
+                                <a href="#" id="ss"><i class="fa fa-search" aria-hidden="true"></i></a>
+                            </li>
+                        </ul>
+
+                    </div>
+
+                    <div class="search-form">
+                        <form>
+                            <input type="text" id="s" size="40" placeholder="Search..." />
+                        </form>
+                    </div>
+
+                </div>
+            </nav>
+        </div>
+
+    </header>
+
+        {% block body %} {% endblock %}
+
+
+
+    <!--footer-->
+    <div id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="footer-heading">
+                        <h3>A propos de <span> Nous</span></h3>
+                         <p>Professionnels ou particuliers, découvrez tout ce que vous recherchez sans vous déplacer au meilleur prix.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="footer-heading">
+                        <h3><span>Categories</span></h3>
+                        <ul>
+                            {% for category in categories %}
+                                <li><a href="#">{{ category.name }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="footer-heading">
+                        <h3><span></span> </h3>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!--bottom footer-->
+    <div id="bottom-footer" class="hidden-xs">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="footer-left">
+                        &copy; Questcequetuveux </br>
+                        <a href="#">Mention légal</a>
+                    </div>
+                </div>
+
+                <div class="col-md-8">
+                    <div class="footer-right">
+                        <ul class="list-unstyled list-inline pull-right">
+                            <li><a href="{{ path('homepage') }}">Accueil</a></li>
+                            <li><a href="/category">categories</a></li>
+                            <li><a href="/annonce">déposer une annonce</a></li>
+                            <li><a href="{{ path('transport') }}">contation transport</a></li>
+                            <li><a href="{{ path('transport') }}">contact</a></li>
+                            {% if is_granted("ROLE_ADMIN") %}
+                                <li><a href="{{ path('admin') }}">Panneaux d'administration</a>  </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% block javascripts %}{% endblock %}
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+
+
+    </body>
+</html>
