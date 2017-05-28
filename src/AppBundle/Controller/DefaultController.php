@@ -18,9 +18,13 @@ class DefaultController extends Controller
         $categoryRepo = $em->getRepository("AppBundle:Category");
         $categories = $categoryRepo->findAll();
 
+        $productRepo = $em->getRepository("AppBundle:Product");
+        $products = $productRepo->findAll();
+
         return $this->render('default/index.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
-            'categories' => $categories
+            'categories' => $categories,
+            'products' => $products
         ]);
     }
 
@@ -55,4 +59,21 @@ class DefaultController extends Controller
             'categories' => $categories
         ]);
     }
+
+    /**
+     * @Route("/mentions-legales", name="mentions")
+     */
+    public function mentionsAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $categoryRepo = $em->getRepository("AppBundle:Category");
+        $categories = $categoryRepo->findAll();
+
+        return $this->render('default/mentions.html.twig', [
+            'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
+            'categories' => $categories
+        ]);
+    }
 }
+

@@ -1,9 +1,163 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    <div class="container">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-3" style="padding-left: 0; padding-right: 0;">
+                    <div class="panel panel-default">
+                        <!-- Default panel contents -->
+                        <div class="panel-heading" id="heading-panel"><h3>Categories</h3> <span><a href="{{ path('allProduct') }}">Tout voir</a></span></div>
+
+                            <ul class="list-group">
+                                <li class="list-group-item"><a href="">Véhicules</a></li>
+                                <li class="list-group-item"><a href="">Immobilier</a></li>
+                                <li class="list-group-item"><a href="">Multimédia et Electroménager</a></li>
+                                <li class="list-group-item"><a href="">Matériel Professionnel</a></li>
+                                <li class="list-group-item"><a href="">Ameublement</a></li>
+                                <li class="list-group-item"><a href="">Accessoires</a></li>
+                                <li class="list-group-item"><a href="">Entretien</a></li>
+                                <li class="list-group-item"><a href="">Vin et Gastronomie</a></li>
+                                <li class="list-group-item"><a href="">Bazar</a></li>
+
+                            </ul>
+
+                    </div>
+
+                </div>
+
+                <form role="search" name="searchform" method="get">
+                    <div class="col-sm-9" style="padding-left: 0; padding-right: 0;">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input type="text" placeholder="Recherchez un produit" name="s" class="form-control left-rounded">
+                                    <div class="input-group-btn">
+                                        <button type="submit" class="btn btn-inverse">Chercher</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12" >
+                            <div id="myCarousel" class="carousel slide">
+                                <!-- Indicators -->
+                                <ol class="carousel-indicators">
+                                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                                </ol>
+
+                                <!-- Wrapper for Slides -->
+                                <div class="carousel-inner">
+                                    <div class="item active">
+                                        <!-- Set the first background image using inline CSS below. -->
+                                        <div class="fill" style="background-image:url('http://www.clubdessitesmarchands.fr/wp-content/uploads/2016/11/Vente-en-ligne-en-France-chiffres-cles-et-analyse-de-reussite-.jpg');"></div>
+                                        <div class="carousel-caption">
+                                            <h2></h2>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <!-- Set the second background image using inline CSS below. -->
+                                        <div class="fill" style="background-image:url('http://respondr.io/wp-content/uploads/2016/07/New_Research_on_Mobile_Ecommerce_Trends.jpg');"></div>
+                                        <div class="carousel-caption">
+                                            <h2></h2>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <!-- Set the third background image using inline CSS below. -->
+                                        <div class="fill" style="background-image:url('https://cdn.colorlib.com/wp/wp-content/uploads/sites/2/free-bootstrap-ecommerce-templates.png');"></div>
+                                        <div class="carousel-caption">
+                                            <h2></h2>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Controls -->
+                                <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                                    <span class="icon-prev"></span>
+                                </a>
+                                <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                                    <span class="icon-next"></span>
+                                </a>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!--Item slider text-->
+        <div class="container">
+            <div class="row" id="slider-text">
+                <div class="col-md-6" >
+                    <h2>DERNIERES ANNONCES</h2>
+                </div>
+            </div>
+        </div>
+
+        <!-- Item slider-->
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="carousel carousel-showmanymoveone slide" id="itemslider">
+                        <div class="carousel-inner">
+                            {% for product in products %}
+                            <div class="item active">
+                                <div class="col-xs-12 col-sm-6 col-md-2">
+                                    <a href="#"><img src="{{ '/uploads/images/products/' ~ product.image }}" class="img-responsive center-block"></a>
+                                    <h4 class="text-center">{{ product.name }}</h4>
+                                    <h5 class="text-center">{{ product.price }} €</h5>
+                                </div>
+                            </div>
+                            {% endfor %}
+
+
+                        </div>
+
+                        <div id="slider-control">
+                            <a class="left carousel-control" href="#itemslider" data-slide="prev"><img src="https://s12.postimg.org/uj3ffq90d/arrow_left.png" alt="Left" class="img-responsive"></a>
+                            <a class="right carousel-control" href="#itemslider" data-slide="next"><img src="https://s12.postimg.org/djuh0gxst/arrow_right.png" alt="Right" class="img-responsive"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Item slider end-->
+
+    </div>
+
+
+    <script>
+        $(document).ready(function(){
+
+            $('#itemslider').carousel({ interval: 3000 });
+
+            $('.carousel-showmanymoveone .item').each(function(){
+                var itemToClone = $(this);
+
+                for (var i=1;i<6;i++) {
+                    itemToClone = itemToClone.next();
+
+                    if (!itemToClone.length) {
+                        itemToClone = $(this).siblings(':first');
+                    }
+
+                    itemToClone.children(':first-child').clone()
+                            .addClass("cloneditem-"+(i))
+                            .appendTo($(this));
+                }
+            });
+        });
+    </script>
 
 {% endblock %}
 
-{% block stylesheets %}
 
-{% endblock %}
+
+
+
+
