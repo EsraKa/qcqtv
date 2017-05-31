@@ -28,13 +28,6 @@ class Product
      */
     private $createdAt = null;
     /**
-     * List of tags associated to the product.
-     *
-     * @var string[]
-     * @ORM\Column(type="simple_array")
-     */
-    private $tags = array();
-    /**
      * Indicate if the product is enabled (available in store).
      *
      * @var bool
@@ -51,14 +44,7 @@ class Product
      * @var File
      */
     private $imageFile;
-    /**
-     * Features of the product.
-     *
-     *
-     * @var array
-     * @ORM\Column(type="array")
-     */
-    private $features = array();
+
     /**
      * The price of the product.
      *
@@ -173,25 +159,6 @@ class Product
         return $this->getEnabled();
     }
     /**
-     * Set the list of features.
-     * The parameter is an associative array (key as type, value as data.
-     *
-     * @param array $features
-     */
-    public function setFeatures($features)
-    {
-        $this->features = $features;
-    }
-    /**
-     * Get all product features.
-     *
-     * @return array
-     */
-    public function getFeatures()
-    {
-        return $this->features;
-    }
-    /**
      * @param File $image
      */
     public function setImageFile(File $image = null)
@@ -258,24 +225,6 @@ class Product
     public function getPrice()
     {
         return $this->price;
-    }
-    /**
-     * Set the list of the tags.
-     *
-     * @param \string[] $tags
-     */
-    public function setTags($tags)
-    {
-        $this->tags = $tags;
-    }
-    /**
-     * Get the list of tags associated to the product.
-     *
-     * @return \string[]
-     */
-    public function getTags()
-    {
-        return $this->tags;
     }
     /**
      * Get all associated categories.

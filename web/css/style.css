@@ -89,6 +89,21 @@
 }
 
 /*Main Menu*/
+
+#main-nav .navbar-left {
+    margin-top: 10px;
+}
+#main-nav .navbar-left li > a {
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 30px;
+    color: #2289a5;
+    padding-top: 0;
+    padding-bottom: 0;
+    text-transform: uppercase;
+}
+
 #main-nav .navbar-right {
     margin-top: 10px;
 }
@@ -254,6 +269,11 @@
 
 #heading-panel span a{
     color: #fff;
+}
+
+.list-group-item{
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 /* caroussel */
@@ -462,3 +482,23 @@
 }
 
 
+/* sidebar */
+/* make sidebar nav vertical */
+@media (min-width: 768px) {
+    .sidebar-nav .navbar .navbar-collapse {
+        padding: 0;
+        max-height: none;
+    }
+    .sidebar-nav .navbar ul {
+        float: none;
+        display: block;
+    }
+    .sidebar-nav .navbar li {
+        float: none;
+        display: block;
+    }
+    .sidebar-nav .navbar li a {
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+}

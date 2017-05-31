@@ -6,6 +6,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
+
 class DefaultController extends Controller
 {
     /**
@@ -74,6 +75,21 @@ class DefaultController extends Controller
             'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
             'categories' => $categories
         ]);
+    }
+
+    /**
+     * @Route("/product/{slug}", name="categorySlug")
+     */
+    public function listeProduitParCategorieAction(\AppBundle\Entity\Category $categories) {
+        $products = $this->get('Doctrine')
+            ->getManager()
+            ->getRepository('AppBundle:Product')
+            ->findAll($categories);
+
+        return $this->render('default/listeProduitParCategorie.html.twig',
+            array('products' => $products,
+                'categories' => $categories )
+        );
     }
 }
 

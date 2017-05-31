@@ -7,18 +7,21 @@
                 <div class="col-md-3" style="padding-left: 0; padding-right: 0;">
                     <div class="panel panel-default">
                         <!-- Default panel contents -->
-                        <div class="panel-heading" id="heading-panel"><h3>Categories</h3> <span><a href="{{ path('allProduct') }}">Tout voir</a></span></div>
+                        <div class="panel-heading" id="heading-panel"><h3 style="margin-top: 0;
+                                                                                 margin-bottom: 5px;">
+                                Categories</h3> <span><a href="{{ path('allProduct') }}">Tout voir</a></span></div>
 
                             <ul class="list-group">
-                                <li class="list-group-item"><a href="">Véhicules</a></li>
-                                <li class="list-group-item"><a href="">Immobilier</a></li>
-                                <li class="list-group-item"><a href="">Multimédia et Electroménager</a></li>
-                                <li class="list-group-item"><a href="">Matériel Professionnel</a></li>
-                                <li class="list-group-item"><a href="">Ameublement</a></li>
-                                <li class="list-group-item"><a href="">Accessoires</a></li>
-                                <li class="list-group-item"><a href="">Entretien</a></li>
-                                <li class="list-group-item"><a href="">Vin et Gastronomie</a></li>
-                                <li class="list-group-item"><a href="">Bazar</a></li>
+
+                                <li class="list-group-item"><img src="{{ asset('images/car.png') }}"> <a href="{{ path('categorySlug', { 'slug': ('vehicules') }) }}"> Véhicules</a></li>
+                                <li class="list-group-item"><img src="{{ asset('images/home.png') }}"><a href="{{ path('categorySlug', { 'slug': ('immobilier') }) }}"> Immobilier</a></li>
+                                <li class="list-group-item"><img src="{{ asset('images/share.png') }}"><a href="{{ path('categorySlug', { 'slug': ('multielectro') }) }}"> Multimédia et Electroménager</a></li>
+                                <li class="list-group-item"><img src="{{ asset('images/archives.png') }}"><a href="{{ path('categorySlug', { 'slug': ('materielpro') }) }}"> Matériel Professionnel</a></li>
+                                <li class="list-group-item"><img src="{{ asset('images/bed.png') }}"><a href="{{ path('categorySlug', { 'slug': ('ameublement') }) }}"> Ameublement</a></li>
+                                <li class="list-group-item"><img src="{{ asset('images/sunglasses.png') }}"><a href="{{ path('categorySlug', { 'slug': ('accessoires') }) }}"> Accessoires</a></li>
+                                <li class="list-group-item"><img src="{{ asset('images/cleaner.png') }}"><a href="{{ path('categorySlug', { 'slug': ('entretien') }) }}"> Entretien</a></li>
+                                <li class="list-group-item"><img src="{{ asset('images/wine-bottle.png') }}"><a href="{{ path('categorySlug', { 'slug': ('vingastro') }) }}"> Vin et Gastronomie</a></li>
+                                <li class="list-group-item"><img src="{{ asset('images/teddy-bear.png') }}"><a href="{{ path('categorySlug', { 'slug': ('bazar') }) }}">Bazar</a></li>
 
                             </ul>
 

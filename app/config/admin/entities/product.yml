@@ -23,7 +23,7 @@ easy_admin:
                     - { property: 'price', format: '%.2f', css_class: text-right }
                     - { property: 'image', type: 'image', base_path: '%app.path.product_images%' }
                     - { property: 'createdAt', format: 'j / M / Y' }
-                    - tags
+
             show:
                 fields:
                     - id
@@ -33,9 +33,8 @@ easy_admin:
                     - createdAt
                     - price
                     - { property: 'image', type: 'image', base_path: '%app.path.product_images%' }
-                    - features
                     - categories
-                    - tags
+
             form:
                 fields:
                     - { type: 'group', css_class: 'col-sm-8', label: 'Basic information', icon: 'pencil' }
@@ -48,9 +47,5 @@ easy_admin:
                     - { type: 'section', label: 'Advanced Settings', icon: 'warning', help: 'Reserved for administrators use' }
                     - { property: 'enabled', label: 'Published' }
                     - { property: 'createdAt' }
-                    - { type: 'group', css_class: 'col-sm-8 new-row' }
-                    - { property: 'features' }
-                    - { type: 'group', css_class: 'col-sm-4' }
-                    - { property: 'tags' }
                     - { type: 'group', css_class: 'col-sm-4', label: 'Attachments', icon: 'paperclip' }
                     - { property: 'imageFile', type: 'vich_image', type_options: { required: true } }

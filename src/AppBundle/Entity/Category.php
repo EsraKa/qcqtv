@@ -3,6 +3,8 @@
 namespace AppBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
+
 /**
  * Class Category.
  *
@@ -28,7 +30,13 @@ class Category
      * @ORM\Column(type="string")
      */
     protected $name;
-    protected $tag;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="slug", type="string", length=50, unique=true)
+     * @Gedmo\Slug(fields={"name"}, unique=true)
+     */
+    private $slug;
     /**
      * Product in the category.
      *
@@ -72,13 +80,26 @@ class Category
         $this->name = $name;
     }
     /**
-     * Get the name of the category.
+     * Get the slug of the category.
      *
      * @return string
      */
     public function getName()
     {
         return $this->name;
+    }
+    public function setSlug($slug)
+    {
+        $this->name = $slug;
+    }
+    /**
+     * Get the slug of the category.
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
     /**
      * Set the parent category.
